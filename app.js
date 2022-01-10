@@ -3,7 +3,6 @@ const notFound = require("./errors/not-found");
 const errorHandler = require("./middleware/errorHandler");
 const fileUpload = require("express-fileupload");
 const singleRouter = require("./routes/singleFile");
-const multipleRouter = require("./routes/multipleFiles");
 const app = express();
 const path = require("path");
 
@@ -19,7 +18,6 @@ app.use(
 app.set("view engine", "ejs");
 
 app.use("/", singleRouter);
-app.use("/", multipleRouter);
 
 app.get("/", async (req, res) => {
   res.render("index");
